@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Todo:detail{% endblock %}
+
+{% block body %}
+    <a class="btn btn-default" href="/todo">Back to todos</a>
+    <hr>
+    <h2 class="page-header">{{ todo.getName() }}</h2>
+    
+    <ul class="list-group">
+        <li class="list-group-item">Category: {{ todo.getCategory() }}</li>
+        <li class="list-group-item">Priority: {{ todo.getPriority() }}</li>
+        <li class="list-group-item">Due: {{ todo.getDueDate() | date('F j, Y, g:i a') }}</li>
+    </ul>
+        <p>
+            {{ todo.getDescription() }}
+        </p>
+{% endblock %}

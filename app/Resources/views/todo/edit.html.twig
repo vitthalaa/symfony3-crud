@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Todo:edit{% endblock %}
+
+{% block body %}
+    <h2 class="page-header">Edit Todo</h2>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

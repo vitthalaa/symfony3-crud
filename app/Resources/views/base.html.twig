@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+
+    <body>
+
+        {{ include('common/menu.html.twig') }}
+
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-md-12">
+                    {% for flash_message in app.session.flashbag.get('notice') %}
+                        <div class="alert alert-success">{{ flash_message }}</div>
+                    {% endfor %}
+                    
+                    {% for flash_message in app.session.flashbag.get('error') %}
+                        <div class="alert alert-danger">{{ flash_message }}</div>
+                    {% endfor %}
+                    
+                    {% block body %}{% endblock %}
+                </div>
+                
+            </div>
+            
+        </div><!-- /.container -->
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
+
